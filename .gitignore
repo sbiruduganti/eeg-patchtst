@@ -1,0 +1,14 @@
+# Python / PyTorch
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.pt
+*.pth
+*.ckpt
+
+# Data & Logs
+data/
+checkpoints/
+logs/
+.DS_Store
