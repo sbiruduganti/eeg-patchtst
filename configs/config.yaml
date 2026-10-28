@@ -1,0 +1,22 @@
+# configs/config.yaml
+data:
+  data_path: "/content/tueg_segments.npy" # Update with actual Delta path later
+  fs: 250
+  input_sec: 5.0
+  target_sec: 0.5  # Test options: 0.25, 0.5, 1.0
+  stride_sec: 5.0
+
+model:
+  c_in: 19          # Number of EEG channels
+  patch_len: 16
+  stride: 8
+  d_model: 128
+  n_heads: 8
+  e_layers: 3
+  dropout: 0.1
+
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  epochs: 10
+  device: "cuda"
