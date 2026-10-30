@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from src.data.dataset import TUEGDataset
+from src.models.dataset import TUEGDataset
 from src.models.PatchTST import Model as PatchTSTModel
 from src.utils.metrics import compute_metrics
 
