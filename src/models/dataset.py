@@ -42,6 +42,10 @@ class TUEGDataset(Dataset):
             # Ensure time dimension is last
             if seg.shape[0] > seg.shape[1] and seg.shape[0] < 100:
                 seg = seg.T  # Transpose to (Channels, TimeSteps) if needed
+
+            mean = np.mean(seg, axis=-1, keepdims=True)
+            std = np.std(seg, axis=-1, keepdims=True) + 1e-6
+            seg = (seg - mean) / std
                 
             num_time_steps = seg.shape[-1]
             
@@ -62,6 +66,3 @@ class TUEGDataset(Dataset):
         x, y = self.samples[idx]
         # Shape: (Channels, TimeSteps) converted to FloatTensor
         return torch.tensor(x, dtype=torch.float32), torch.tensor(y, dtype=torch.float32)
-
-
-#
